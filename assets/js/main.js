@@ -30,7 +30,8 @@ const FALLBACK_CONFIG = {
       {
         type: "ebook",
         price_label: "Prix et disponibilité sur Amazon",
-        amazon_url: "https://www.amazon.fr/Po%C3%A9vie-vie-Po%C3%A8mes-Patrice-Lauret-ebook/dp/B0FG6FWF7Z"
+        amazon_url:
+          "https://www.amazon.fr/Poevie-Une-Po%C3%A8mes-Patrice-Lauret-ebook/dp/B07MJTZHYQ/ref=sr_1_3?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=TBUL9QVTD07Y&dib=eyJ2IjoiMSJ9.pUTXcgwYJ0MDV03KuYzDD2vVwrsaJgfY0HhAmv1xv6nqiZiGAlnI5hkeJScohkXLvSyGxaQMlTE0V6gFMw2LqVsUcsUNoL6eBdvivQjJrXUGB71GDQU93i-y1sBCz-huTAJizSarhdZ7mC09jU9qOEdwYLq8ki0WZmOy1IKoFCPwPHHjkAxW3Zfl64Xalf_jcAVNrihb4oe2irsOuQxXIWvYi8SLI51lk8dDc3YXJ5E.HH4504oV-TVU09UGCTIOo8_sd6deDVUA2L9E4ElbhTU&dib_tag=se&keywords=poevie&qid=1771121001&s=books&sprefix=poevie%2Cstripbooks%2C213&sr=1-3"
       },
       {
         type: "paperback",
