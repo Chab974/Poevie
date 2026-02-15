@@ -49,7 +49,6 @@
         <nav aria-label="Navigation principale">
           <ul class="nav-links">
             <li><a href="#livre">Le livre</a></li>
-            <li><a href="#emotions">Émotions</a></li>
             <li><a href="#informations">Informations</a></li>
             <li><a href="#univers">Univers</a></li>
             <li><a href="#auteur">L'auteur</a></li>
@@ -123,14 +122,6 @@
         </div>
       </section>
 
-      <section id="emotions" class="section-spacing section-paper" hidden>
-        <div class="container narrow">
-          <p class="eyebrow center">Galerie d'émotions</p>
-          <h2 class="section-title center">Trois éclats poétiques</h2>
-          <div id="emotion-gallery-list" class="emotion-grid"></div>
-        </div>
-      </section>
-
       <section id="informations" class="section-spacing section-light" hidden>
         <div class="container narrow">
           <p class="eyebrow center">Informations</p>
@@ -168,7 +159,30 @@
         <div class="container narrow">
           <p class="eyebrow center">Découvrez mon univers</p>
           <h2 class="section-title center">Style, thèmes et portée</h2>
-          <div id="universe-sections" class="universe-grid"></div>
+          <div class="universe-layout">
+            <div class="universe-visuals">
+              <img
+                id="universe-cover-visual"
+                class="universe-main-visual"
+                src="./assets/img/poevie-cover.png"
+                alt="Couverture de Poévie"
+                width="652"
+                height="1044"
+                loading="lazy"
+              >
+              <img
+                id="universe-author-visual"
+                class="universe-secondary-visual"
+                src="./assets/img/author-photo.png"
+                alt="Portrait de Patrice Lauret"
+                width="600"
+                height="600"
+                loading="lazy"
+              >
+              <p class="universe-punchline">Une poésie vivante, entre souffle intime et regard sur le monde.</p>
+            </div>
+            <div id="universe-sections" class="universe-grid"></div>
+          </div>
         </div>
       </section>
 

@@ -54,52 +54,36 @@
     "Il est doux de se promener aux petits détours, entre amitié et désirs inavoués. C'est la complexité d'une honnête vérité, à peine maîtrisée.",
     "Il est agréable d'écouter le bruit de l'eau s'écouler, d'éveiller une sensibilité, et d'en discuter en toute liberté, dans la plus pure sincérité."
   ],
-  "emotion_gallery": [
-    {
-      "title": "Joie éclatante",
-      "text": "Le rire jaillit, pétillant de bonheur. Le coeur léger s'envole."
-    },
-    {
-      "title": "Douce mélancolie",
-      "text": "Les souvenirs s'effritent comme la pluie. Le passé murmure ses secrets."
-    },
-    {
-      "title": "Espoir lumineux",
-      "text": "La lumière pointe à l'horizon, guidant les rêves vers l'avenir."
-    }
-  ],
   "universe_sections": [
     {
       "title": "L'Art d'Écrire et d'Apprécier la Poésie",
-      "body": "Écoutez votre coeur: laissez vos émotions guider votre plume.\nJouez avec les mots: expérimentez sonorités et rythmes.\nLisez à voix haute: ressentez la cadence des vers.\nInterprétez librement: chaque poème accueille une lecture unique."
+      "body": "Une poésie à ressentir autant qu'à lire.\nÉcoutez votre coeur avant d'écrire.\nLisez à voix haute pour faire vibrer les vers.\nInterprétez librement: chaque lecture est personnelle."
     },
     {
       "title": "Style et caractéristiques",
-      "body": "Grande musicalité des vers et jeux de sonorités subtils.\nJeux de mots et doubles sens qui enrichissent la lecture.\nStyle accessible mêlant profondeur philosophique et simplicité.\nStructure souple alternant vers libres et formes traditionnelles."
+      "body": "Une écriture musicale, claire et expressive.\nJeux de mots et doubles sens discrets.\nUn ton accessible, sans renoncer à la profondeur.\nAlternance entre vers libres et formes plus classiques."
     },
     {
       "title": "Thèmes principaux",
-      "body": "Le temps et les saisons: une métaphore des émotions humaines.\nL'art et la création: la vie se dessine de peintures en tableaux.\nLa quête de vérité: authenticité face aux apparences du monde moderne.\nL'amour et les relations: tensions fécondes entre liberté et attachement."
-    },
-    {
-      "title": "Originalité de l'oeuvre",
-      "body": "Créer des ponts entre quotidien et philosophique.\nUtiliser la nature comme miroir des émotions humaines.\nManier la langue française avec précision et plusieurs niveaux de lecture.\nMaintenir un équilibre entre accessibilité et profondeur poétique."
+      "body": "Le temps, l'art, la vérité, l'amour: quatre axes forts.\nLes saisons deviennent miroir des émotions.\nLa création transforme les troubles intérieurs en images.\nLes relations humaines oscillent entre liberté et attachement."
     },
     {
       "title": "Impact et portée",
-      "body": "Des recueils comme Poevie: Une vie de Poèmes et Au Hasard des Mots témoignent d'une recherche constante d'authenticité. Les textes invitent à la réflexion tout en restant ancrés dans une réalité tangible."
-    },
-    {
-      "title": "Explorez. Ressentez.",
-      "body": "Plongez dans une collection de poèmes inspirants et émouvants.\nLaissez-vous emporter par la magie des mots et des émotions."
+      "body": "Une poésie qui relie l'intime et l'universel.\nUn pont entre quotidien et réflexion.\nUne langue précise qui reste sensible.\nUne lecture qui laisse une trace durable."
     }
   ],
   "social_proof": [
     {
-      "quote": "Sonia: Chers Patrice, tes poèmes sont un pur délice... Je te remercie de nous faire partager tes joies, tes peines et, au final, on se rend compte que chacun de nous ressent les mêmes choses. Encore merci !!"
+      "quote": "Une poésie qui se lit vite mais reste longtemps en tête. J'y reviens comme on revient à une chanson qu'on aime.",
+      "source": "Avis de lecture - rédaction du site"
     },
     {
-      "quote": "Mailys: De la douceur à dévorer sans modération."
+      "quote": "J'aime le contraste entre douceur et lucidité. Les textes sont accessibles, mais ils ouvrent de vraies questions intérieures.",
+      "source": "Avis de lecture - rédaction du site"
+    },
+    {
+      "quote": "Le recueil a du rythme et une vraie voix. Idéal pour lire quelques vers le soir et laisser infuser.",
+      "source": "Avis de lecture - rédaction du site"
     }
   ],
   "legal": {

@@ -52,7 +52,6 @@ const FALLBACK_CONFIG = {
     "L'encre garde nos failles / comme une mer garde le sel / sans jamais juger la rive.",
     "Chaque mot posé / est une fenêtre ouverte / sur ce que l'on tait."
   ],
-  emotion_gallery: [],
   universe_sections: [],
   social_proof: [
     {
@@ -259,38 +258,6 @@ function renderSocialProof(config) {
   });
 }
 
-function renderEmotionGallery(config) {
-  const section = document.getElementById("emotions");
-  const list = document.getElementById("emotion-gallery-list");
-  if (!section || !list) return;
-
-  const items = pick(config?.emotion_gallery, []);
-  if (!items.length) {
-    section.hidden = true;
-    list.innerHTML = "";
-    return;
-  }
-
-  section.hidden = false;
-  list.innerHTML = "";
-  items.slice(0, 3).forEach((item) => {
-    const article = document.createElement("article");
-    article.className = "emotion-card";
-
-    const title = document.createElement("h3");
-    title.className = "emotion-title";
-    title.textContent = pick(item?.title, "Émotion");
-
-    const text = document.createElement("p");
-    text.className = "emotion-text";
-    text.textContent = pick(item?.text, "");
-
-    article.appendChild(title);
-    article.appendChild(text);
-    list.appendChild(article);
-  });
-}
-
 function renderUniverseSections(config) {
   const section = document.getElementById("univers");
   const list = document.getElementById("universe-sections");
@@ -305,20 +272,38 @@ function renderUniverseSections(config) {
 
   section.hidden = false;
   list.innerHTML = "";
-  items.forEach((item) => {
+  items.slice(0, 4).forEach((item, idx) => {
     const article = document.createElement("article");
-    article.className = "universe-card";
+    article.className = `universe-card tone-${(idx % 4) + 1}`;
 
     const title = document.createElement("h3");
     title.className = "universe-title";
     title.textContent = pick(item?.title, "Section");
 
+    const rawBody = pick(item?.body, "");
+    const lines = rawBody
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean);
+
     const body = document.createElement("p");
     body.className = "universe-body";
-    body.textContent = pick(item?.body, "");
+    body.textContent = pick(lines[0], rawBody);
 
     article.appendChild(title);
     article.appendChild(body);
+
+    const highlights = lines.slice(1, 4);
+    if (highlights.length) {
+      const ul = document.createElement("ul");
+      ul.className = "universe-highlights";
+      highlights.forEach((line) => {
+        const li = document.createElement("li");
+        li.textContent = line;
+        ul.appendChild(li);
+      });
+      article.appendChild(ul);
+    }
     list.appendChild(article);
   });
 }
@@ -425,6 +410,16 @@ function applyContent(config) {
     }
   }
 
+  const universeCoverEl = document.getElementById("universe-cover-visual");
+  if (universeCoverEl) {
+    universeCoverEl.src = coverPng;
+    universeCoverEl.alt = `Couverture du livre ${bookTitle}`;
+    universeCoverEl.onerror = () => {
+      universeCoverEl.onerror = null;
+      universeCoverEl.src = COVER_PLACEHOLDER;
+    };
+  }
+
   const authorPhotoEl = document.getElementById("author-photo");
   const authorPhotoAvifSourceEl = document.getElementById("author-photo-avif");
   if (authorPhotoEl) {
@@ -446,6 +441,16 @@ function applyContent(config) {
     }
   }
 
+  const universeAuthorEl = document.getElementById("universe-author-visual");
+  if (universeAuthorEl) {
+    universeAuthorEl.src = getAuthorPhoto(config);
+    universeAuthorEl.alt = `Portrait de ${authorName}`;
+    universeAuthorEl.onerror = () => {
+      universeAuthorEl.onerror = null;
+      universeAuthorEl.src = AUTHOR_PLACEHOLDER;
+    };
+  }
+
   const authorNameEl = document.getElementById("author-name");
   if (authorNameEl) authorNameEl.textContent = authorName;
 
@@ -463,7 +468,6 @@ function applyContent(config) {
 
   renderHeroActions(config);
   renderBenefits(config);
-  renderEmotionGallery(config);
   renderInformationPoints(config);
   renderUniverseSections(config);
   renderExcerpts(config);
