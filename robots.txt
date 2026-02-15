@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chab974.github.io/Poevie/sitemap.xml

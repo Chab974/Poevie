@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Poévie couverture source</title>
+  <desc id="desc">Version nettoyée de la couverture Poévie pour export web</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3bb6cf" />
+      <stop offset="100%" stop-color="#1296be" />
+    </linearGradient>
+    <linearGradient id="banner" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9f4f67" />
+      <stop offset="100%" stop-color="#90465f" />
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.07" />
+    </pattern>
+    <g id="flower">
+      <circle cx="0" cy="0" r="5" fill="#ffffff" />
+      <circle cx="0" cy="-10" r="6" fill="#f5b644" />
+      <circle cx="9" cy="-3" r="6" fill="#ffffff" />
+      <circle cx="6" cy="8" r="6" fill="#dba0d2" />
+      <circle cx="-6" cy="8" r="6" fill="#ffffff" />
+      <circle cx="-9" cy="-3" r="6" fill="#f3d27a" />
+    </g>
+  </defs>
+
+  <rect width="840" height="1200" fill="#2f2b32" />
+  <rect x="92" y="20" width="520" height="1160" fill="url(#bg)" />
+  <rect x="92" y="20" width="520" height="1160" fill="url(#dots)" />
+
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.75" stroke-width="6">
+    <path d="M75 18h568" />
+    <path d="M75 1182h568" />
+  </g>
+
+  <g opacity="0.88">
+    <circle cx="164" cy="294" r="246" fill="none" stroke="#ffffff" stroke-width="5" />
+    <circle cx="212" cy="950" r="260" fill="none" stroke="#ffffff" stroke-width="5" />
+  </g>
+
+  <g fill="none" stroke="#5a4a59" stroke-width="5" stroke-linecap="round">
+    <path d="M20 1060C145 930 214 840 345 896" />
+    <path d="M60 1000C178 892 265 864 365 908" />
+    <path d="M65 430C160 310 231 236 366 270" />
+    <path d="M122 362C226 288 268 246 368 258" />
+  </g>
+
+  <g transform="translate(178 272)">
+    <use href="#flower" />
+  </g>
+  <g transform="translate(260 356) scale(0.85)">
+    <use href="#flower" />
+  </g>
+  <g transform="translate(164 906)">
+    <use href="#flower" />
+  </g>
+  <g transform="translate(275 988) scale(0.85)">
+    <use href="#flower" />
+  </g>
+
+  <g transform="rotate(-9 420 600)">
+    <rect x="-22" y="565" width="900" height="140" fill="url(#banner)" />
+    <rect x="-22" y="565" width="900" height="140" fill="#ffffff" fill-opacity="0.08" />
+    <text x="158" y="635" fill="#ffffff" font-size="72" font-family="Georgia, serif" font-style="italic">Poévie</text>
+    <text x="152" y="693" fill="#ffffff" font-size="66" font-family="Arial, sans-serif">Une vie de Poèmes</text>
+  </g>
+
+  <rect x="92" y="20" width="520" height="85" fill="#222126" fill-opacity="0.86" />
+  <text x="380" y="74" text-anchor="middle" fill="#ffffff" font-size="48" font-family="Arial, sans-serif">Patrice Lauret</text>
+
+  <text x="558" y="1110" transform="rotate(-90 558 1110)" fill="#1f222a" font-size="22" font-family="Arial, sans-serif" opacity="0.8">
+    Isabelle Becherel-Budet
+  </text>
+</svg>

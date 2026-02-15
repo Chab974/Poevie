@@ -1,0 +1,74 @@
+{
+  "site": {
+    "name": "Poévie",
+    "url": "https://chab974.github.io/Poevie/",
+    "locale": "fr_FR"
+  },
+  "seo": {
+    "title": "Poévie | Patrice Lauret | Poésie contemporaine",
+    "description": "Découvrez Poévie de Patrice Lauret, un recueil de poésie contemporaine disponible en ebook Kindle et en livre broché sur Amazon.",
+    "og_image": "./assets/img/poevie-cover.png",
+    "twitter_card": "summary_large_image"
+  },
+  "book": {
+    "title": "Poévie",
+    "subtitle": "Une vie de poèmes",
+    "author": "Patrice Lauret",
+    "tagline": "Un recueil poétique qui relie émotion brute, respiration intérieure et éclats du quotidien.",
+    "description": "Poévie propose une traversée sensible entre instants intimes et regards sur le monde. Les textes, courts et rythmés, invitent à une lecture libre: quelques lignes pour s'arrêter, ressentir et repartir autrement.",
+    "benefits": [
+      "Des poèmes courts pour des lectures régulières.",
+      "Une écriture accessible, directe et contemporaine.",
+      "Un format idéal pour offrir une poésie vivante."
+    ],
+    "information_points": [
+      "La plus ancienne poésie connue date d’environ 2000 av. J.-C.",
+      "Le titre de « poète lauréat » existe depuis le Moyen Âge.",
+      "La poésie peut être utilisée en thérapie pour soutenir l’expression des émotions.",
+      "Une poésie accessible relie profondeur philosophique et simplicité du quotidien."
+    ],
+    "cover_image": "./assets/img/poevie-cover.png",
+    "cover_image_png": "./assets/img/poevie-cover.png",
+    "cover_image_avif": "./assets/img/poevie-cover.avif",
+    "formats": [
+      {
+        "type": "ebook",
+        "price_label": "Version Kindle (prix affiché sur Amazon)",
+        "amazon_url": "https://www.amazon.fr/Po%C3%A9vie-vie-Po%C3%A8mes-Patrice-Lauret-ebook/dp/B0FG6FWF7Z"
+      },
+      {
+        "type": "paperback",
+        "price_label": "Livre broché (prix affiché sur Amazon)",
+        "amazon_url": "https://amzn.eu/d/h7kd53S"
+      }
+    ]
+  },
+  "author": {
+    "name": "Patrice Lauret",
+    "bio": "Patrice Lauret explore la poésie comme un espace d'équilibre entre fragilité et force. Avec Poévie, il compose des textes qui s'ancrent dans le vécu et ouvrent des résonances immédiates chez le lecteur.",
+    "photo": "./assets/img/author-photo.png",
+    "photo_avif": "./assets/img/author-photo.avif"
+  },
+  "excerpts": [
+    "On s’imagine glisser sur les flots des mots sans interdit.",
+    "Il est doux de se promener aux petits détours de sentiments abordés.",
+    "Qu’il est plaisant d’en discuter en toute liberté, dans la plus pure sincérité."
+  ],
+  "social_proof": [
+    {
+      "quote": "On se rend compte que chacun de nous ressent les mêmes choses.",
+      "source": "Extrait PDF"
+    },
+    {
+      "quote": "Je te remercie de nous faire partager tes joies, tes peines et ton humanité.",
+      "source": "Extrait PDF"
+    },
+    {
+      "quote": "Une écriture sincère, musicale et proche du vécu.",
+      "source": "Extrait PDF"
+    }
+  ],
+  "legal": {
+    "footer_note": "© 2026 Patrice Lauret. Tous droits réservés."
+  }
+}
