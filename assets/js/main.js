@@ -1,12 +1,12 @@
 const FALLBACK_CONFIG = {
   site: {
-    name: "Poévie",
+    name: "L'Univers des Mots",
     url: "https://chab974.github.io/Poevie/",
     locale: "fr_FR"
   },
   seo: {
-    title: "Poévie | Patrice Lauret",
-    description: "Poévie, une vie de poèmes de Patrice Lauret. Disponible en ebook et en livre broché.",
+    title: "L'Univers des Mots | Poévie | Patrice Lauret",
+    description: "Bienvenue dans l'univers poétique de Patrice Lauret.",
     og_image: "./assets/img/poevie-cover.png",
     twitter_card: "summary_large_image"
   },
@@ -14,13 +14,13 @@ const FALLBACK_CONFIG = {
     title: "Poévie",
     subtitle: "Une vie de poèmes",
     author: "Patrice Lauret",
-    tagline: "Un recueil poétique à découvrir et à offrir.",
+    tagline: "Bienvenue dans un monde où les vers dansent et les émotions s'épanouissent.",
     description:
-      "Poévie rassemble des textes courts et sensibles autour des émotions, des liens humains et de la mémoire.",
+      "Poévie est une invitation à l'évasion intemporelle: un refuge pour l'âme, un miroir de l'intériorité et un langage universel.",
     benefits: [
-      "Des textes concis, accessibles et profonds.",
-      "Un univers intime pour lecteurs de poésie contemporaine.",
-      "Deux formats disponibles pour lire partout."
+      "Évasion intemporelle: la poésie transcende le temps.",
+      "Miroir de l'âme: elle révèle la vérité intérieure.",
+      "Langage universel: elle relie au-delà des frontières."
     ],
     information_points: [],
     cover_image: "./assets/img/poevie-cover.png",
@@ -52,6 +52,8 @@ const FALLBACK_CONFIG = {
     "L'encre garde nos failles / comme une mer garde le sel / sans jamais juger la rive.",
     "Chaque mot posé / est une fenêtre ouverte / sur ce que l'on tait."
   ],
+  emotion_gallery: [],
+  universe_sections: [],
   social_proof: [
     {
       quote: "À remplacer par un avis Amazon vérifié: recueil émouvant, écriture fluide, lecture marquante.",
@@ -242,11 +244,82 @@ function renderSocialProof(config) {
   quotes.forEach((quoteItem) => {
     const figure = document.createElement("figure");
     figure.className = "quote-card";
-    figure.innerHTML = `
-      <blockquote>${pick(quoteItem.quote, "Avis lecteur indisponible.")}</blockquote>
-      <figcaption>${pick(quoteItem.source, "Source non précisée")}</figcaption>
-    `;
+    const blockquote = document.createElement("blockquote");
+    blockquote.textContent = pick(quoteItem.quote, "Avis lecteur indisponible.");
+    figure.appendChild(blockquote);
+
+    const source = typeof quoteItem?.source === "string" ? quoteItem.source.trim() : "";
+    if (source) {
+      const figcaption = document.createElement("figcaption");
+      figcaption.textContent = source;
+      figure.appendChild(figcaption);
+    }
+
     list.appendChild(figure);
+  });
+}
+
+function renderEmotionGallery(config) {
+  const section = document.getElementById("emotions");
+  const list = document.getElementById("emotion-gallery-list");
+  if (!section || !list) return;
+
+  const items = pick(config?.emotion_gallery, []);
+  if (!items.length) {
+    section.hidden = true;
+    list.innerHTML = "";
+    return;
+  }
+
+  section.hidden = false;
+  list.innerHTML = "";
+  items.slice(0, 3).forEach((item) => {
+    const article = document.createElement("article");
+    article.className = "emotion-card";
+
+    const title = document.createElement("h3");
+    title.className = "emotion-title";
+    title.textContent = pick(item?.title, "Émotion");
+
+    const text = document.createElement("p");
+    text.className = "emotion-text";
+    text.textContent = pick(item?.text, "");
+
+    article.appendChild(title);
+    article.appendChild(text);
+    list.appendChild(article);
+  });
+}
+
+function renderUniverseSections(config) {
+  const section = document.getElementById("univers");
+  const list = document.getElementById("universe-sections");
+  if (!section || !list) return;
+
+  const items = pick(config?.universe_sections, []);
+  if (!items.length) {
+    section.hidden = true;
+    list.innerHTML = "";
+    return;
+  }
+
+  section.hidden = false;
+  list.innerHTML = "";
+  items.forEach((item) => {
+    const article = document.createElement("article");
+    article.className = "universe-card";
+
+    const title = document.createElement("h3");
+    title.className = "universe-title";
+    title.textContent = pick(item?.title, "Section");
+
+    const body = document.createElement("p");
+    body.className = "universe-body";
+    body.textContent = pick(item?.body, "");
+
+    article.appendChild(title);
+    article.appendChild(body);
+    list.appendChild(article);
   });
 }
 
@@ -326,6 +399,9 @@ function applyContent(config) {
   const eyebrowEl = document.getElementById("hero-eyebrow");
   if (eyebrowEl) eyebrowEl.textContent = `${siteName} • ${authorName}`;
 
+  const brandTextEl = document.querySelector(".brand-text");
+  if (brandTextEl) brandTextEl.textContent = siteName;
+
   const descriptionEl = document.getElementById("book-description");
   if (descriptionEl) descriptionEl.textContent = pick(config?.book?.description, FALLBACK_CONFIG.book.description);
 
@@ -377,7 +453,7 @@ function applyContent(config) {
   if (authorBioEl) authorBioEl.textContent = pick(config?.author?.bio, FALLBACK_CONFIG.author.bio);
 
   const footerTitle = document.getElementById("footer-title");
-  if (footerTitle) footerTitle.textContent = bookTitle;
+  if (footerTitle) footerTitle.textContent = siteName;
 
   const footerCopy = document.getElementById("footer-copy");
   if (footerCopy) footerCopy.textContent = pick(config?.legal?.footer_note, FALLBACK_CONFIG.legal.footer_note);
@@ -387,7 +463,9 @@ function applyContent(config) {
 
   renderHeroActions(config);
   renderBenefits(config);
+  renderEmotionGallery(config);
   renderInformationPoints(config);
+  renderUniverseSections(config);
   renderExcerpts(config);
   renderSocialProof(config);
   renderFormatCards(config);

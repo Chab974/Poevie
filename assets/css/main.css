@@ -383,6 +383,34 @@ a {
   gap: 1rem;
 }
 
+.emotion-grid {
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.emotion-card {
+  margin: 0;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(100, 188, 200, 0.42);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow-md);
+}
+
+.emotion-title {
+  margin: 0 0 0.55rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.55rem;
+  color: var(--accent);
+}
+
+.emotion-text {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
 .info-card {
   margin: 0;
   padding: 1.25rem;
@@ -393,6 +421,34 @@ a {
   box-shadow: var(--shadow-md);
   color: var(--ink-soft);
   font-size: 1.02rem;
+}
+
+.universe-grid {
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.universe-card {
+  margin: 0;
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(159, 76, 102, 0.28);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.universe-title {
+  margin: 0 0 0.55rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+  color: var(--ink);
+}
+
+.universe-body {
+  margin: 0;
+  color: var(--ink-soft);
+  white-space: pre-line;
 }
 
 .social-grid {
@@ -567,7 +623,9 @@ a {
     animation: none;
   }
 
+  .emotion-grid,
   .info-grid,
+  .universe-grid,
   .social-grid,
   .format-grid {
     grid-template-columns: 1fr;

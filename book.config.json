@@ -1,12 +1,12 @@
 {
   "site": {
-    "name": "Poévie",
+    "name": "L'Univers des Mots",
     "url": "https://chab974.github.io/Poevie/",
     "locale": "fr_FR"
   },
   "seo": {
-    "title": "Poévie | Patrice Lauret | Poésie contemporaine",
-    "description": "Découvrez Poévie de Patrice Lauret, un recueil de poésie contemporaine disponible en ebook Kindle et en livre broché sur Amazon.",
+    "title": "L'Univers des Mots | Poévie | Patrice Lauret",
+    "description": "Bienvenue dans l'univers poétique de Patrice Lauret. Découvrez Poévie en ebook Kindle et en livre broché sur Amazon.",
     "og_image": "./assets/img/poevie-cover.png",
     "twitter_card": "summary_large_image"
   },
@@ -14,12 +14,12 @@
     "title": "Poévie",
     "subtitle": "Une vie de poèmes",
     "author": "Patrice Lauret",
-    "tagline": "Un recueil poétique qui relie émotion brute, respiration intérieure et éclats du quotidien.",
-    "description": "Poévie propose une traversée sensible entre instants intimes et regards sur le monde. Les textes, courts et rythmés, invitent à une lecture libre: quelques lignes pour s'arrêter, ressentir et repartir autrement.",
+    "tagline": "Bienvenue dans un monde où les vers dansent et les émotions s'épanouissent.",
+    "description": "Poévie est une invitation à l'évasion intemporelle: un refuge pour l'âme, un miroir de l'intériorité et un langage universel qui relie au-delà des frontières.",
     "benefits": [
-      "Des poèmes courts pour des lectures régulières.",
-      "Une écriture accessible, directe et contemporaine.",
-      "Un format idéal pour offrir une poésie vivante."
+      "Évasion intemporelle: la poésie transcende le temps et offre un refuge à l'âme inquiète.",
+      "Miroir de l'âme: elle reflète les émotions les plus profondes et révèle la vérité intérieure.",
+      "Langage universel: elle relie les sensibilités au-delà des frontières."
     ],
     "information_points": [
       "La plus ancienne poésie connue date d’environ 2000 av. J.-C.",
@@ -45,27 +45,61 @@
   },
   "author": {
     "name": "Patrice Lauret",
-    "bio": "Patrice Lauret explore la poésie comme un espace d'équilibre entre fragilité et force. Avec Poévie, il compose des textes qui s'ancrent dans le vécu et ouvrent des résonances immédiates chez le lecteur.",
+    "bio": "Patrice Lauret développe une écriture poétique distinctive, musicale et accessible, qui mêle profondeur philosophique et simplicité d'expression. Son oeuvre crée un pont entre le quotidien, la nature et l'universalité des émotions humaines.",
     "photo": "./assets/img/author-photo.png",
     "photo_avif": "./assets/img/author-photo.avif"
   },
   "excerpts": [
-    "On s’imagine glisser sur les flots des mots sans interdit.",
-    "Il est doux de se promener aux petits détours de sentiments abordés.",
-    "Qu’il est plaisant d’en discuter en toute liberté, dans la plus pure sincérité."
+    "On s'imagine glisser sur les flots des mots, sans interdit. Le vent, dans les cheveux aurifères, fait frémir l'Aurence, rivière aux trésors cachés.",
+    "Il est doux de se promener aux petits détours, entre amitié et désirs inavoués. C'est la complexité d'une honnête vérité, à peine maîtrisée.",
+    "Il est agréable d'écouter le bruit de l'eau s'écouler, d'éveiller une sensibilité, et d'en discuter en toute liberté, dans la plus pure sincérité."
+  ],
+  "emotion_gallery": [
+    {
+      "title": "Joie éclatante",
+      "text": "Le rire jaillit, pétillant de bonheur. Le coeur léger s'envole."
+    },
+    {
+      "title": "Douce mélancolie",
+      "text": "Les souvenirs s'effritent comme la pluie. Le passé murmure ses secrets."
+    },
+    {
+      "title": "Espoir lumineux",
+      "text": "La lumière pointe à l'horizon, guidant les rêves vers l'avenir."
+    }
+  ],
+  "universe_sections": [
+    {
+      "title": "L'Art d'Écrire et d'Apprécier la Poésie",
+      "body": "Écoutez votre coeur: laissez vos émotions guider votre plume.\nJouez avec les mots: expérimentez sonorités et rythmes.\nLisez à voix haute: ressentez la cadence des vers.\nInterprétez librement: chaque poème accueille une lecture unique."
+    },
+    {
+      "title": "Style et caractéristiques",
+      "body": "Grande musicalité des vers et jeux de sonorités subtils.\nJeux de mots et doubles sens qui enrichissent la lecture.\nStyle accessible mêlant profondeur philosophique et simplicité.\nStructure souple alternant vers libres et formes traditionnelles."
+    },
+    {
+      "title": "Thèmes principaux",
+      "body": "Le temps et les saisons: une métaphore des émotions humaines.\nL'art et la création: la vie se dessine de peintures en tableaux.\nLa quête de vérité: authenticité face aux apparences du monde moderne.\nL'amour et les relations: tensions fécondes entre liberté et attachement."
+    },
+    {
+      "title": "Originalité de l'oeuvre",
+      "body": "Créer des ponts entre quotidien et philosophique.\nUtiliser la nature comme miroir des émotions humaines.\nManier la langue française avec précision et plusieurs niveaux de lecture.\nMaintenir un équilibre entre accessibilité et profondeur poétique."
+    },
+    {
+      "title": "Impact et portée",
+      "body": "Des recueils comme Poevie: Une vie de Poèmes et Au Hasard des Mots témoignent d'une recherche constante d'authenticité. Les textes invitent à la réflexion tout en restant ancrés dans une réalité tangible."
+    },
+    {
+      "title": "Explorez. Ressentez.",
+      "body": "Plongez dans une collection de poèmes inspirants et émouvants.\nLaissez-vous emporter par la magie des mots et des émotions."
+    }
   ],
   "social_proof": [
     {
-      "quote": "On se rend compte que chacun de nous ressent les mêmes choses.",
-      "source": "Extrait PDF"
+      "quote": "Sonia: Chers Patrice, tes poèmes sont un pur délice... Je te remercie de nous faire partager tes joies, tes peines et, au final, on se rend compte que chacun de nous ressent les mêmes choses. Encore merci !!"
     },
     {
-      "quote": "Je te remercie de nous faire partager tes joies, tes peines et ton humanité.",
-      "source": "Extrait PDF"
-    },
-    {
-      "quote": "Une écriture sincère, musicale et proche du vécu.",
-      "source": "Extrait PDF"
+      "quote": "Mailys: De la douceur à dévorer sans modération."
     }
   ],
   "legal": {
