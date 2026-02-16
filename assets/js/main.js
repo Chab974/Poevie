@@ -23,6 +23,8 @@ const FALLBACK_CONFIG = {
       "Langage universel: elle relie au-delà des frontières."
     ],
     information_points: [],
+    preface_title: "Préface",
+    preface_paragraphs: ["Préface à venir."],
     cover_image: "./assets/img/poevie-cover.png",
     cover_image_png: "./assets/img/poevie-cover.png",
     cover_image_avif: "./assets/img/poevie-cover.avif",
@@ -108,6 +110,16 @@ function getAuthorPhoto(config) {
 
 function getAuthorPhotoAvif(config) {
   return pick(config?.author?.photo_avif, "");
+}
+
+function getPrefaceTitle(config) {
+  return pick(config?.book?.preface_title, "Préface");
+}
+
+function getPrefaceParagraphs(config) {
+  const paragraphs = pick(config?.book?.preface_paragraphs, []);
+  if (Array.isArray(paragraphs) && paragraphs.length) return paragraphs;
+  return ["Préface à venir."];
 }
 
 async function loadConfig() {
@@ -225,6 +237,60 @@ function renderInformationPoints(config) {
     card.textContent = point;
     list.appendChild(card);
   });
+}
+
+function renderPreface(config) {
+  const titleEl = document.getElementById("book-preface-title");
+  const contentEl = document.getElementById("book-preface-content");
+  if (!titleEl || !contentEl) return;
+
+  titleEl.textContent = getPrefaceTitle(config);
+  contentEl.innerHTML = "";
+
+  getPrefaceParagraphs(config).forEach((paragraph) => {
+    const p = document.createElement("p");
+    p.textContent = paragraph;
+    contentEl.appendChild(p);
+  });
+}
+
+function setupBookFlip() {
+  const card = document.getElementById("book-flip-card");
+  const shell = document.getElementById("book-flip-shell");
+  if (!card || !shell) return;
+  if (card.dataset.flipBound === "true") return;
+
+  card.dataset.flipBound = "true";
+
+  let flipped = false;
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  const setFlipped = (state) => {
+    flipped = state;
+    card.classList.toggle("is-flipped", state);
+    card.setAttribute("aria-pressed", state ? "true" : "false");
+  };
+
+  if (canHover) {
+    card.addEventListener("pointerenter", () => setFlipped(true));
+    card.addEventListener("pointerleave", () => setFlipped(false));
+  }
+
+  card.addEventListener("click", () => {
+    if (canHover) return;
+    setFlipped(!flipped);
+  });
+
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setFlipped(!flipped);
+    }
+  });
+
+  const clearIntro = () => shell.classList.remove("is-intro");
+  shell.addEventListener("animationend", clearIntro, { once: true });
+  window.setTimeout(clearIntro, 1300);
 }
 
 function renderSocialProof(config) {
@@ -390,6 +456,8 @@ function applyContent(config) {
   const descriptionEl = document.getElementById("book-description");
   if (descriptionEl) descriptionEl.textContent = pick(config?.book?.description, FALLBACK_CONFIG.book.description);
 
+  renderPreface(config);
+
   const coverEl = document.getElementById("book-cover");
   const coverAvifSourceEl = document.getElementById("book-cover-avif");
   if (coverEl) {
@@ -468,6 +536,7 @@ function applyContent(config) {
 
   renderHeroActions(config);
   renderBenefits(config);
+  setupBookFlip();
   renderInformationPoints(config);
   renderUniverseSections(config);
   renderExcerpts(config);
