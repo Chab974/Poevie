@@ -1,35 +1,19 @@
-# Landing Page "Poevie" - Documentation Complete et Didactique
+# Poévie - Landing Page Statique
 
-## 1) Objectif du projet
+Mise à jour du README: 16 février 2026.
 
-Ce depot contient une landing page statique pour promouvoir le livre **Poevie** de **Patrice Lauret** avec un objectif principal de conversion vers Amazon:
+Landing page éditoriale pour promouvoir le livre **Poévie** de **Patrice Lauret** avec un objectif de conversion vers Amazon (Kindle + broché).
 
-- parcours d'achat `ebook`
-- parcours d'achat `broche`
-- presentation editoriale (livre, auteur, extraits, avis)
-- publication simple sur GitHub Pages
+## Aperçu
 
-Le projet est volontairement **sans framework**: HTML + CSS + JavaScript, avec un fichier de contenu central `book.config.json`.
+- Site statique sans framework: `index.html` + `assets/css/main.css` + `assets/js/main.js`
+- Contenu piloté par `book.config.json`
+- Déploiement sur GitHub Pages
+- SEO dynamique injecté côté client (meta + JSON-LD `Book`)
 
----
+URL de production: [https://chab974.github.io/Poevie/](https://chab974.github.io/Poevie/)
 
-## 2) Stack technique
-
-- `HTML` pour la structure de page
-- `CSS` custom pour le style
-- `JavaScript` vanilla pour injecter les contenus
-- `JSON` pour piloter les textes/liens/images sans hardcode massif
-- `GitHub Pages` pour l'hebergement
-
-Points importants:
-
-- Pas de build obligatoire
-- Pas de dependances Node/NPM pour le run
-- Edition de contenu possible sans toucher la logique JS
-
----
-
-## 3) Structure du projet
+## Structure
 
 ```text
 Poevie/
@@ -38,327 +22,258 @@ Poevie/
 ├── robots.txt
 ├── sitemap.xml
 └── assets/
-    ├── css/
-    │   └── main.css
-    ├── js/
-    │   └── main.js
+    ├── css/main.css
+    ├── js/main.js
     └── img/
-        ├── poevie-cover.png
-        ├── poevie-cover.avif
-        ├── author-photo.png
-        ├── author-photo.avif
-        ├── cover-placeholder.svg
-        └── author-placeholder.svg
 ```
 
----
+## Démarrage local
 
-## 4) Fonctionnement general
-
-### 4.1 Flux de rendu
-
-1. `index.html` fournit les sections et les conteneurs vides.
-2. `assets/js/main.js` charge `book.config.json`.
-3. Le JS injecte les contenus dans les blocs cibles (`hero`, `infos`, `avis`, etc.).
-4. Si une donnee est absente:
-   - fallback texte/image, ou
-   - masquage propre de la section (`hidden`)
-
-### 4.2 Principe "content-first"
-
-La majorite du contenu edito est pilotee par `book.config.json`.  
-Vous changez le message marketing sans re-ecrire la page.
-
----
-
-## 5) Contrat de donnees: `book.config.json`
-
-Schema fonctionnel actuellement exploite:
-
-```json
-{
-  "site": {
-    "name": "string",
-    "url": "string",
-    "locale": "string"
-  },
-  "seo": {
-    "title": "string",
-    "description": "string",
-    "og_image": "string",
-    "twitter_card": "string"
-  },
-  "book": {
-    "title": "string",
-    "subtitle": "string",
-    "author": "string",
-    "tagline": "string",
-    "description": "string",
-    "benefits": ["string", "string", "string"],
-    "information_points": ["string", "string", "string", "string"],
-    "cover_image": "string",
-    "cover_image_png": "string",
-    "cover_image_avif": "string (optionnel)",
-    "formats": [
-      {
-        "type": "ebook | paperback",
-        "price_label": "string",
-        "amazon_url": "string"
-      }
-    ]
-  },
-  "author": {
-    "name": "string",
-    "bio": "string",
-    "photo": "string",
-    "photo_avif": "string (optionnel)"
-  },
-  "excerpts": ["string", "string", "string"],
-  "universe_sections": [
-    {
-      "title": "string",
-      "body": "string avec retours a la ligne"
-    }
-  ],
-  "social_proof": [
-    {
-      "quote": "string",
-      "source": "string (optionnel)"
-    }
-  ],
-  "legal": {
-    "footer_note": "string"
-  }
-}
-```
-
-### 5.1 Regles de fallback
-
-- `cover_image_png` absent -> fallback `cover_image`
-- `cover_image_avif` absent -> image PNG
-- `author.photo_avif` absent -> image PNG
-- `social_proof` vide -> section avis masquee
-- `book.information_points` vide -> section informations masquee
-- `universe_sections` vide -> section univers masquee
-- `social_proof[].source` vide -> aucun sous-texte affiche sous la citation
-
----
-
-## 6) Sections de la page (etat actuel)
-
-- `#hero`: promesse + CTA formats
-- `#livre`: pitch + "Pourquoi la poesie ?"
-- `#informations`: faits fascinants
-- `#auteur`: bio + photo
-- `#univers`: bloc visuel + cartes style/themes/portee
-- `#extraits`: poeme "Eau"
-- `#avis`: temoignages
-- `#acheter`: cartes d'achat Amazon
-
-Navigation ancree dans le menu principal.
-
----
-
-## 7) Modifier le contenu pas a pas
-
-### 7.1 Changer les liens Amazon
-
-Fichier: `book.config.json`
-
-- Ebook: `book.formats[]` avec `type: "ebook"`
-- Broche: `book.formats[]` avec `type: "paperback"`
-
-### 7.2 Changer les textes marketing
-
-Toujours dans `book.config.json`:
-
-- `site.name`, `book.tagline`, `book.description`
-- `book.benefits`
-- `book.information_points`
-- `excerpts`
-- `social_proof`
-- `universe_sections`
-
-### 7.3 Changer les visuels
-
-Images recommandees:
-
-- couverture: `assets/img/poevie-cover.png` + `assets/img/poevie-cover.avif`
-- auteur: `assets/img/author-photo.png` + `assets/img/author-photo.avif`
-
-Mettre a jour les chemins dans `book.config.json` si besoin.
-
----
-
-## 8) Personnalisation du design
-
-Fichier: `assets/css/main.css`
-
-Variables principales:
-
-- `--paper`, `--paper-strong`
-- `--ink`, `--ink-soft`
-- `--accent`, `--accent-soft`
-- `--line`
-
-Le projet est deja calibre pour une identite:
-
-- fond papier
-- accents turquoise/rose
-- contraste editorial
-- section univers plus visuelle et compacte
-
----
-
-## 9) SEO et meta
-
-### 9.1 Elements geres
-
-- `<title>` dynamique
-- `meta description`
-- Open Graph (`og:*`)
-- Twitter Card
-- canonical URL
-- JSON-LD `Book` (injection via `#book-ldjson`)
-- `robots.txt`
-- `sitemap.xml`
-
-### 9.2 Fichiers SEO
-
-- `index.html` (meta)
-- `book.config.json` (valeurs SEO dynamiques)
-- `robots.txt`
-- `sitemap.xml`
-
----
-
-## 10) Accessibilite et UX
-
-Implementations presentes:
-
-- lien "skip to content"
-- `alt` sur images
-- CTA explicites
-- sections masquables sans casser la structure
-- responsive mobile/desktop
-
-Recommandations:
-
-- conserver des textes de boutons explicites
-- ne pas surcharger les sections longues
-- verifier contraste apres changement de palette
-
----
-
-## 11) Lancement local
-
-Depuis la racine du projet:
+Le fichier `book.config.json` est chargé via `fetch`, donc il faut servir le dossier avec un serveur HTTP.
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Puis ouvrir:
+Puis ouvrir [http://localhost:8080](http://localhost:8080).
 
-- [http://localhost:8080](http://localhost:8080)
+## Comment ça fonctionne
 
-Pourquoi ce mode:
+1. `index.html` contient la structure.
+2. `assets/js/main.js` charge `book.config.json` avec `cache: "no-store"`.
+3. Le contenu est injecté dynamiquement.
+4. Si le JSON est indisponible/invalide, le site retombe sur `FALLBACK_CONFIG` (intégré dans `main.js`).
 
-- evite les problemes de `fetch("./book.config.json")` en ouvrant le fichier directement
+## Contrat de données (`book.config.json`)
 
----
+Clés principales utilisées par le code:
 
-## 12) Deploiement GitHub Pages
+- `site`: nom du site, URL canonique, locale
+- `seo`: title, description, image OG, twitter card
+- `book`: titre, sous-titre, tagline, description, bénéfices, formats Amazon, préface, images
+- `author`: nom, bio, photo
+- `excerpts`: extraits
+- `universe_sections`: blocs "univers"
+- `social_proof`: avis lecteurs
+- `legal.footer_note`: texte de footer
 
-Etat attendu:
+Exemple minimal:
 
-- branche source: `main`
-- dossier source: `/` (root)
+```json
+{
+  "site": {
+    "name": "L'Univers des Mots",
+    "url": "https://chab974.github.io/Poevie/",
+    "locale": "fr_FR"
+  },
+  "book": {
+    "title": "Poévie",
+    "subtitle": "Une vie de poèmes",
+    "author": "Patrice Lauret",
+    "formats": [
+      { "type": "ebook", "price_label": "Prix Amazon", "amazon_url": "https://..." },
+      { "type": "paperback", "price_label": "Prix Amazon", "amazon_url": "https://..." }
+    ],
+    "preface_title": "Préface",
+    "preface_paragraphs": ["Paragraphe 1", "Paragraphe 2"]
+  },
+  "author": {
+    "name": "Patrice Lauret",
+    "photo": "./assets/img/author-photo.png"
+  }
+}
+```
+
+## Règles de rendu importantes
+
+- `book.cover_image_png` fallback sur `book.cover_image`
+- `book.cover_image_avif` et `author.photo_avif` sont optionnels
+- En cas d'erreur image: placeholders automatiques (`cover-placeholder.svg`, `author-placeholder.svg`)
+- `book.information_points` vide: section `#informations` masquée
+- `universe_sections` vide: section `#univers` masquée
+- `social_proof` vide: section `#avis` masquée
+- `social_proof[].source` vide: source non affichée
+
+Limites appliquées dans `main.js`:
+
+- `information_points`: max 4
+- `universe_sections`: max 4
+- `excerpts`: max 3
+
+## Préface interactive (flip du livre)
+
+- La face avant affiche la couverture.
+- La face arrière affiche `book.preface_title` + `book.preface_paragraphs`.
+- Desktop: flip au survol.
+- Mobile / pointeur tactile: flip au clic.
+- Accessibilité clavier: touche `Entrée` et `Espace`.
+
+## SEO et métadonnées
+
+Mises à jour dynamiques à partir de `book.config.json`:
+
+- `<title>`
+- `meta[name="description"]`
+- Open Graph (`og:title`, `og:description`, `og:image`, `og:url`)
+- Twitter (`twitter:title`, `twitter:description`, `twitter:image`, `twitter:card`)
+- lien canonical
+- JSON-LD `Book` dans `#book-ldjson`
+
+Fichiers SEO statiques:
+
+- `robots.txt`
+- `sitemap.xml`
+
+## Déploiement (GitHub Pages)
+
+Configuration attendue:
+
+- Branche: `main`
+- Dossier source: racine (`/`)
 
 Workflow:
 
 ```bash
 git add .
-git commit -m "Votre message"
+git commit -m "docs: update README"
 git push
 ```
 
-URL de production actuelle:
+## Maintenance rapide
 
-- [https://chab974.github.io/Poevie/](https://chab974.github.io/Poevie/)
+Avant push:
 
----
+- Valider le JSON: `python3 -m json.tool book.config.json > /dev/null`
+- Vérifier les liens Amazon
+- Vérifier le rendu mobile/desktop
+- Vérifier les images (cover + auteur)
 
-## 13) Troubleshooting
+Après push:
 
-### Probleme: section vide non voulue
+- Vérifier le site en production
+- Vérifier le statut du build GitHub Pages
 
-- Verifier la cle JSON correspondante:
-  - `information_points`
-  - `social_proof`
-  - `universe_sections`
+## Tuto détaillé de la pile technique
 
-### Probleme: image non chargee
+Cette section explique la pile utilisée dans ce projet et le rôle de chaque composant, de façon pratique.
 
-- Verifier le chemin dans `book.config.json`
-- Verifier que le fichier existe dans `assets/img/`
-- Le placeholder est automatique en cas d'erreur
+### 1) Vue d'ensemble
 
-### Probleme: changement non visible en ligne
+Le site repose sur 5 briques:
 
-- verifier `git push` termine
-- verifier le dernier build GitHub Pages
-- attendre la propagation CDN (quelques secondes a 1-2 min)
+- `index.html` pour la structure
+- `assets/css/main.css` pour le style et le responsive
+- `assets/js/main.js` pour le rendu dynamique
+- `book.config.json` pour le contenu (approche content-first)
+- GitHub Pages pour l'hébergement
 
----
+Le projet est volontairement sans framework et sans build obligatoire.
 
-## 14) Guide editorial rapide
+### 2) Flux de rendu
 
-Pour garder une page efficace:
+1. Le navigateur charge `index.html`.
+2. Le script `assets/js/main.js` lance `init()`.
+3. `loadConfig()` charge `book.config.json` via `fetch`.
+4. `applyContent(config)` injecte les contenus et met à jour les metas SEO.
+5. Les blocs dynamiques (formats, infos, avis, univers, extraits, préface) sont rendus par des fonctions dédiées.
+6. En cas d'erreur de chargement JSON, le code utilise `FALLBACK_CONFIG`.
 
-- garder 3 a 4 messages forts max par section
-- garder les extraits courts et lisibles
-- privilegier une phrase d'impact + un CTA net
-- eviter les blocs de texte trop longs (mobile)
+### 3) Rôle des fichiers
 
-Template de citation:
+- `index.html`: sections, conteneurs, IDs cibles, metas de base, script principal.
+- `assets/css/main.css`: design system (variables), layout, composants, media queries, animation du livre.
+- `assets/js/main.js`: logique de chargement des données, injection DOM, SEO dynamique, interactions.
+- `book.config.json`: source éditoriale unique (texte, liens Amazon, visuels, SEO).
+- `robots.txt` et `sitemap.xml`: support SEO côté indexation.
 
-```json
-{
-  "quote": "Texte de l'avis.",
-  "source": "Optionnel"
-}
-```
+### 4) Modèle de données dans `book.config.json`
 
-Si `source` est vide, rien n'est affiche sous la citation.
+Clés principales attendues:
 
----
+- `site`: `name`, `url`, `locale`
+- `seo`: `title`, `description`, `og_image`, `twitter_card`
+- `book`: `title`, `subtitle`, `author`, `tagline`, `description`, `benefits`, `information_points`, `formats`, `preface_title`, `preface_paragraphs`, images de couverture
+- `author`: `name`, `bio`, `photo`, `photo_avif`
+- `excerpts`, `universe_sections`, `social_proof`
+- `legal.footer_note`
 
-## 15) Maintenance
+### 5) Règles de fallback (robustesse)
 
-Checklist avant push:
+- `cover_image_png` fallback sur `cover_image`.
+- `cover_image_avif` est optionnel.
+- `author.photo_avif` est optionnel.
+- En cas d'erreur image, placeholders automatiques:
+- `assets/img/cover-placeholder.svg`
+- `assets/img/author-placeholder.svg`
+- Si une section n'a pas de contenu exploitable, elle est masquée proprement:
+- `#informations` si `information_points` vide
+- `#univers` si `universe_sections` vide
+- `#avis` si `social_proof` vide
 
-- JSON valide (`python3 -m json.tool book.config.json`)
-- liens Amazon cliquables
-- visuels charges
-- sections dynamiques ok
-- rendu mobile lisible
+Limites appliquées:
 
-Checklist apres push:
+- `information_points`: max 4
+- `universe_sections`: max 4
+- `excerpts`: max 3
 
-- site accessible
-- build Pages en `built`
-- meta SEO presentes
+### 6) Préface interactive (flip card)
 
----
+La couverture du livre est interactive:
 
-## 16) Resume
+- face avant: image de couverture
+- face arrière: `preface_title` + `preface_paragraphs`
+- desktop: flip au survol (si périphérique hover)
+- mobile/tactile: flip au clic
+- clavier: `Entrée` et `Espace` pris en charge
 
-Ce projet est pense pour etre:
+Ce comportement est géré par `setupBookFlip()` dans `assets/js/main.js` et stylé dans `assets/css/main.css`.
 
-- simple a maintenir
-- rapide a faire evoluer
-- robuste sans framework
-- efficace pour convertir vers Amazon
+### 7) SEO dynamique
 
-Si vous gardez `book.config.json` comme source unique de contenu, vous pouvez iterer tres vite sans dette technique.
+Le JS met à jour dynamiquement:
+
+- `document.title`
+- `meta[name="description"]`
+- Open Graph (`og:title`, `og:description`, `og:image`, `og:url`)
+- Twitter (`twitter:title`, `twitter:description`, `twitter:image`, `twitter:card`)
+- `<link rel="canonical">`
+- JSON-LD `Book` dans `#book-ldjson`
+
+Résultat: le SEO peut être ajusté depuis `book.config.json` sans modifier la structure HTML.
+
+### 8) Responsive et accessibilité
+
+Dans `assets/css/main.css`:
+
+- design piloté par variables CSS (`:root`)
+- grilles adaptatives (`hero-grid`, `section-grid`, etc.)
+- passage en mono-colonne sous `980px`
+- adaptation boutons/hero sous `640px`
+- gestion du mode réduction de mouvement:
+- `@media (prefers-reduced-motion: reduce)`
+- lien d'évitement présent (`skip-link`)
+- textes alternatifs image mis à jour dynamiquement
+
+### 9) Workflow d'édition de contenu
+
+1. Modifier `book.config.json`.
+2. Lancer le site en local (`python3 -m http.server 8080`).
+3. Vérifier les sections clés (hero, infos, univers, avis, acheter).
+4. Vérifier les liens Amazon.
+5. Commit/push pour publication GitHub Pages.
+
+### 10) Checklist opérationnelle
+
+Avant push:
+
+- `python3 -m json.tool book.config.json > /dev/null`
+- vérifier les liens Amazon
+- vérifier chargement des images
+- vérifier rendu mobile et desktop
+- vérifier title/description/canonical
+
+Après push:
+
+- vérifier la disponibilité du site
+- vérifier le build GitHub Pages
+- contrôler rapidement les metas (source HTML rendu)
