@@ -242,11 +242,11 @@ a {
   width: 100%;
   aspect-ratio: 652 / 1044;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transform-origin: center center;
   transition: transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
   transform: translate3d(0, 0, 0) rotateY(-6deg);
   will-change: transform;
-  contain: paint;
   cursor: pointer;
   outline: none;
 }
@@ -260,6 +260,15 @@ a {
   transform: translate3d(0, 0, 0) rotateY(180deg);
 }
 
+.book-flip-card.is-flipped .book-face-front {
+  opacity: 0;
+}
+
+.book-flip-card.is-flipped .book-face-back {
+  z-index: 3;
+  opacity: 1;
+}
+
 .book-face {
   position: absolute;
   inset: 0;
@@ -267,10 +276,12 @@ a {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform-style: preserve-3d;
-  will-change: transform;
+  -webkit-transform-style: preserve-3d;
+  transition: opacity 180ms ease;
 }
 
 .book-face-front {
+  z-index: 2;
   transform: translateZ(0.1px);
   margin: 0;
   padding: clamp(0.7rem, 2vw, 1.2rem);
@@ -294,10 +305,10 @@ a {
   border: 1px solid rgba(100, 188, 200, 0.35);
   box-shadow: var(--shadow-sm);
   filter: none;
-  will-change: transform;
 }
 
 .book-face-back {
+  z-index: 1;
   transform: rotateY(180deg) translateZ(0.1px);
   padding: 1rem;
   border: 1px solid rgba(159, 76, 102, 0.34);
