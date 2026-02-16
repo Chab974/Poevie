@@ -266,6 +266,7 @@ function setupBookFlip() {
   const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   const setFlipped = (state) => {
+    if (state === flipped) return;
     flipped = state;
     card.classList.toggle("is-flipped", state);
     card.setAttribute("aria-pressed", state ? "true" : "false");
