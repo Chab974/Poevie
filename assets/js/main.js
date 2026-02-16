@@ -277,9 +277,26 @@ function setupBookFlip() {
     });
   };
 
+  let hoverLeaveTimer = 0;
   if (canHover) {
-    card.addEventListener("pointerenter", () => setFlipped(true));
-    card.addEventListener("pointerleave", () => setFlipped(false));
+    const enterHandler = () => {
+      if (hoverLeaveTimer) {
+        window.clearTimeout(hoverLeaveTimer);
+        hoverLeaveTimer = 0;
+      }
+      setFlipped(true);
+    };
+
+    const leaveHandler = () => {
+      if (hoverLeaveTimer) window.clearTimeout(hoverLeaveTimer);
+      hoverLeaveTimer = window.setTimeout(() => {
+        setFlipped(false);
+        hoverLeaveTimer = 0;
+      }, 90);
+    };
+
+    shell.addEventListener("pointerenter", enterHandler);
+    shell.addEventListener("pointerleave", leaveHandler);
   }
 
   card.addEventListener("click", () => {

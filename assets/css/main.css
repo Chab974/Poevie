@@ -352,16 +352,6 @@ a {
   color: var(--ink-soft);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .book-flip-card:not(.is-flipped):hover {
-    transform: translate3d(0, 0, 0) rotateY(-10deg);
-  }
-
-  .book-flip-card.is-flipped:hover {
-    transform: translate3d(0, 0, 0) rotateY(180deg);
-  }
-}
-
 .ink-blot {
   position: absolute;
   filter: blur(44px);
