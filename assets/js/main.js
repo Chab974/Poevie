@@ -263,13 +263,18 @@ function setupBookFlip() {
   card.dataset.flipBound = "true";
 
   let flipped = false;
+  let flipRaf = 0;
   const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   const setFlipped = (state) => {
     if (state === flipped) return;
     flipped = state;
-    card.classList.toggle("is-flipped", state);
-    card.setAttribute("aria-pressed", state ? "true" : "false");
+    if (flipRaf) window.cancelAnimationFrame(flipRaf);
+    flipRaf = window.requestAnimationFrame(() => {
+      card.classList.toggle("is-flipped", state);
+      card.setAttribute("aria-pressed", state ? "true" : "false");
+      flipRaf = 0;
+    });
   };
 
   if (canHover) {
