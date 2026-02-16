@@ -277,3 +277,119 @@ Après push:
 - vérifier la disponibilité du site
 - vérifier le build GitHub Pages
 - contrôler rapidement les metas (source HTML rendu)
+
+## Tutoriel débutant pas à pas
+
+Ce guide est pensé pour une première prise en main, sans connaissance avancée.
+
+### Étape 1 - Ouvrir le projet localement
+
+```bash
+cd /Users/chab/Documents/AI-SANDBOX/GITHUB/POEVIE
+```
+
+Vérifier les fichiers principaux:
+
+```bash
+ls -la
+```
+
+Tu dois voir au minimum:
+
+- `index.html`
+- `book.config.json`
+- `assets/`
+
+### Étape 2 - Lancer le site en local
+
+```bash
+python3 -m http.server 8080
+```
+
+Puis ouvrir: [http://localhost:8080](http://localhost:8080)
+
+Pourquoi un serveur local est obligatoire:
+
+- le JavaScript charge `book.config.json` via `fetch`
+- ouvrir `index.html` en double-clic peut bloquer ce chargement
+
+### Étape 3 - Modifier le contenu
+
+Le fichier à éditer en priorité est:
+
+- `book.config.json`
+
+Modifications les plus courantes:
+
+- titre/sous-titre: `book.title`, `book.subtitle`
+- accroche: `book.tagline`
+- description: `book.description`
+- liens Amazon: `book.formats[].amazon_url`
+- bio auteur: `author.bio`
+- avis: `social_proof`
+
+### Étape 4 - Vérifier le JSON
+
+Avant de recharger la page, vérifier que le JSON est valide:
+
+```bash
+python3 -m json.tool book.config.json > /dev/null
+```
+
+Si la commande ne renvoie rien, le JSON est valide.
+
+### Étape 5 - Contrôler le rendu visuel
+
+Sur la page locale, vérifier:
+
+- la couverture s'affiche
+- les boutons Amazon ouvrent la bonne URL
+- les sections ne disparaissent pas sans raison
+- le rendu mobile est correct
+
+Test mobile rapide dans Chrome/Edge/Brave:
+
+1. Ouvrir les outils développeur (`F12`)
+2. Activer le mode appareil mobile
+3. Tester plusieurs largeurs (ex: 390px, 768px)
+
+### Étape 6 - Vérifier le SEO de base
+
+Dans la page locale, contrôler:
+
+- le `<title>` affiché dans l'onglet
+- la meta description
+- l'URL canonique
+
+Astuce:
+
+- clic droit -> "Afficher le code source"
+- rechercher `og:title`, `twitter:card`, `application/ld+json`
+
+### Étape 7 - Publier sur GitHub
+
+```bash
+git add README.md book.config.json
+git commit -m "docs: update README and content guide"
+git push origin main
+```
+
+### Étape 8 - Vérifier la version en ligne
+
+Ouvrir:
+
+- [https://chab974.github.io/Poevie/](https://chab974.github.io/Poevie/)
+
+Contrôles après publication:
+
+- la dernière modification est visible
+- les liens Amazon sont bons
+- la navigation fonctionne
+
+### Dépannage rapide
+
+Si les changements ne s'affichent pas:
+
+- faire un rafraîchissement forcé (`Ctrl+F5` ou `Cmd+Shift+R`)
+- attendre 1 à 2 minutes (propagation GitHub Pages)
+- vérifier que `git push` a bien poussé sur `main`
