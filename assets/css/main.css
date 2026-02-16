@@ -229,9 +229,8 @@ a {
   width: min(380px, 100%);
   margin-inline: auto;
   perspective: 1100px;
-  transform: translate3d(0, 0, 0);
+  transform: translateZ(0);
   will-change: transform;
-  animation: bookFloat 6.2s ease-in-out infinite;
 }
 
 .book-flip-shell.is-intro {
@@ -356,13 +355,6 @@ a {
 .preface-placeholder {
   margin: 0;
   color: var(--ink-soft);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .book-flip-shell:hover,
-  .book-flip-shell:focus-within {
-    animation-play-state: paused;
-  }
 }
 
 .ink-blot {
@@ -748,16 +740,6 @@ a {
   font-size: 0.92rem;
 }
 
-@keyframes bookFloat {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotateZ(-0.45deg);
-  }
-  50% {
-    transform: translate3d(4px, -2px, 0) rotateZ(0.45deg);
-  }
-}
-
 @keyframes bookIntro {
   0% {
     opacity: 0;
@@ -786,10 +768,6 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .book-flip-shell {
-    animation: none;
-  }
-
   .book-flip-shell.is-intro {
     animation: none;
   }
